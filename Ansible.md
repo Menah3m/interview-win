@@ -97,6 +97,18 @@
     + file        1.创建目录   -a “path=  state=directory"   2.创建连接文件  -a "path= src= state=link "
 
       ​			 3.删除文件  -a "path= state=absent“
+      
+    + cron       定时任务       -a  "minute=   hour= day= month=   weekday=  job=   name=  state="
+
+    + yum     程序包管理  -a “name= ”
+
+    + service   控制服务状态    -a “name=   state= {started|stoppe|restarted}    ”
+
+    + user
+
+    + group
+
+    + setup      
 
 ##### 
 
