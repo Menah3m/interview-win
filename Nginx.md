@@ -53,7 +53,10 @@ engine X的简称，用来解决较大量并发连接数的Web服务器程序
 Master + Worker
 
 + Master
+  + 一个master进程可以生成一个或多个worker进程
+  + 作用：加载配置文件，管理worker进程，平滑升级 等
 + Worker
+  + 提供服务：http，http代理，FastCGI代理等
 
 
 
