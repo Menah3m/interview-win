@@ -50,7 +50,7 @@ engine X的简称，用来解决较大量并发连接数的Web服务器程序
 
 ##### 程序架构
 
-Master + Worker
+Master + Worker 模式
 
 + Master
   + 一个master进程可以生成一个或多个worker进程
