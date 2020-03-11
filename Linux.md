@@ -36,7 +36,7 @@ umask
 
 ##### 特殊权限
 
-SUID  SGID SBIT
+SUID（4）  SGID（2） SBIT（1）
 
 
 
@@ -144,6 +144,39 @@ chattr 设置
 
 
 ---
+
+#### Linux系统变慢问题定位
+
+思路
+
+总：整机
+
+分：CPU，Memory，Disk，磁盘I/O，网络I/O
+
+
+
+##### 整体
+
+- top
+  - 主要查看%CPU，%MEM，load average（1，5，15分钟的系统负载，平均值大于0.6就有问题）
+  - -h
+- uptime
+  - 查看机器运行时间，查看load average
+
+
+
+##### CPU
+
++ vmstat 
+  + -n 2 3       含义：每两秒采集一次，共采集三次
+  + 主要查看头部的procs及尾部的cpu指标
+    + procs：包括r  和 b    r代表running process个数，b代表blocked process个数
+    + cpu： 包括us，sy，id，wa，st  分别代表user，system，idle，wait，state  若us+sy大于80%，则存在cpu不足情况
++ mpstat -P ALL 
+  + 查看多核cpu 所有cpu的使用信息
+
++ pidstat -u 1 -p <PID>
+  + 查看某个进程占用的cpu信息
 
 
 
