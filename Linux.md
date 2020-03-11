@@ -175,8 +175,47 @@ chattr 设置
 + mpstat -P ALL 
   + 查看多核cpu 所有cpu的使用信息
 
-+ pidstat -u 1 -p <PID>
++ pidstat -u 1 -p <PID>  -r <采样间隔时间>
   + 查看某个进程占用的cpu信息
+
+
+
+##### Memory
+
++ free
++ pidstat
+
+
+
+##### Disk
+
++ df -h  
+  + 查看磁盘剩余空间
++ du -h
+  + 每个文件所占空间
+
+
+
+##### 磁盘I/O
+
++ iostat -xdk 2 3
+  + 
+
+
+
+##### 网络I/O
+
++ ifstat
+
+---
+
+#### CPU占用过高原因分析
+
+思路：
+
++ 使用top命令查找占用最高的非系统进程
++ ps -ef/-aux
++ 定位到具体线程
 
 
 
