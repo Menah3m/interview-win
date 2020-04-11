@@ -184,6 +184,7 @@ chattr 设置
 
 + free
 + pidstat
++ /proc/meminfo
 
 
 
