@@ -1,3 +1,37 @@
+##### 文件打包和解包
+
+`tar`<br>
+
+```shell
+tar cf /tmp/etc-backup.tar /etc   //打包
+```
+
+```shell
+tar czf /tmp/etc-backup.tar.gz /etc  //打包的同时进行压缩（得到的文件用tar.gz标识）
+```
+
+```shell
+ls -lh /tmp/etc-backup.tar*   //查看处理后的文件（主要看大小）
+```
+
+```shell
+tar xf /tmp/etc-backup.tar -C /root    //解包  -C参数表示存放的位置
+```
+
+```shell
+tar zxf /tmp/etc-backup.tar.gz -C /root //解包并解压缩
+```
+
+##### vim
+
+
+
+ 
+
+
+
+
+
 #### Linux权限划分原则
 
 ---
