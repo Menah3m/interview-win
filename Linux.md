@@ -22,7 +22,57 @@ tar xf /tmp/etc-backup.tar -C /root    //解包  -C参数表示存放的位置
 tar zxf /tmp/etc-backup.tar.gz -C /root //解包并解压缩
 ```
 
-##### vim
+
+
+##### 网络排错常用命令
+
++ ping              检查网络是否连通
+
++ traceroute   查看到某地址的路径
++ mtr                => my traceroute
++ nslookup     DNS相关
++ telnet            检查端口是否畅通
++ tcpdump      检查数据包
+
+```shell
+tcpdump -i any -n port 80   捕获80端口的所有tcp数据包   -n代表：数据包使用ip的形式显示
+tcpdump -i any -n host 10.0.0.1    捕获主机10.0.0.1主机的所有tcp数据包
+tcpdump -i any -n host 10.0.0.1 and port 80  -w  file_name   -w表示保存结果到某个文件
+```
+
++ netstat          查看端口状态
+
+```shell
+netstat -ntpl    -n 使用ip形式显示  -t tcp协议  -p 进程  -l  查看状态是listen的
+```
+
++ ss                    和netstat类似
+
+```shell
+ss -ntpl   
+```
+
+##### 网络服务管理
+
+> 网络服务管理程序：SysV、systemd
+
+> 网络配置文件：
+>
+> + 网卡配置：ifcfg-eth0（后缀随实际情况变化)
+> + 网络参数配置：/etc/hosts
+
+```shell
+//查看网络服务状态
+systemctl status NetworkManager   
+systemctl status network
+# network和NetworkManager互斥使用，使用一个就要禁用另一个
+//禁用网络服务
+chkconfig --level 2345 network off  2345是指系统服务的执行等级
+
+
+```
+
+
 
 
 
