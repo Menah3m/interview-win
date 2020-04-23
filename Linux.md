@@ -58,7 +58,7 @@ ss -ntpl
 
 > 网络配置文件：
 >
-> + 网卡配置：ifcfg-eth0（后缀随实际情况变化)
+> + 网卡配置：/etc/sysconfig/network-scripts/ifcfg-**（后缀随实际情况变化)
 > + 网络参数配置：/etc/hosts
 
 ```shell
@@ -68,11 +68,54 @@ systemctl status network
 # network和NetworkManager互斥使用，使用一个就要禁用另一个
 //禁用网络服务
 chkconfig --level 2345 network off  2345是指系统服务的执行等级
-
-
+systemctl disable NetworkManager
+// 启用
+systemctl enable NetworkManager
+// 修改主机名
+hostnamectl set-hostname 主机名
+# 修改主机名后要同时修改 /etc/hosts文件下的对应的主机名关系
+vim /etc/hosts
+127.0.0.1 原主机名 原主机名 -> 127.0.0.1 现主机名 现主机名
 ```
 
 
+
+##### 软件安装
+
++ 软件包和包管理器
+  + rpm是RHEL系(RHEL\CentOS的软件包格式，对应的包管理器是yum
+  + deb是Debian系（Debian\Ubuntu）的软件包格式，对应的包管理器是apt
+
++ 软件包格式
+
+```shell
+vim-common-7.4.10.el7.x86_64.rpm
+软件名称-软件版本.系统版本.平台
+```
+
++ rpm命令
+
+```shell
+rpm -q 软件包名称
+rpm -qa | more    -q 查询软件包  -a 范围是所有已安装    | 管道符     more 分页显示
+rpm -i 软件包名称     安装软件包
+rpm -e 软件包名称     卸载软件包
+
+```
+
+缺点：安装软件包时无法解决依赖问题， 即要按依赖顺序安装<br>
+
++ 刻录系统镜像
+
+```shell
+dd if=/dev/sr0 of=/xxx/xxx.iso  将光盘里的系统刻成镜像文件
+```
+
++ 挂载mount
+
+```shell
+mount  /dev/sr0 /mnt   //将光盘设备挂在到/mnt下
+```
 
 
 
