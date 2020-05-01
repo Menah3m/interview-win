@@ -117,7 +117,47 @@ dd if=/dev/sr0 of=/xxx/xxx.iso  将光盘里的系统刻成镜像文件
 mount  /dev/sr0 /mnt   //将光盘设备挂在到/mnt下
 ```
 
+##### 用户和用户组配置
 
+###### 用户配置文件：/etc/passwd<br>
+
+```shell
+user1:x:1001:1001::/home/user1:/bin/bash
+```
+
+共有7个字段:<br>
+
+用户名称 : user1<br>
+
+是否使用密码进行验证(x表示需要) :x<br>
+
+用户id :1001<br>
+
+ 组id :1001<br>
+
+ 注释 ：无<br>
+
+用户家目录 ：/home/user1<br>
+
+默认登陆shell：/bin/bash（/sbin/nologin表示禁止用户登录）<br>
+
+###### 密码配置文件: /etc/shadow
+
+###### group配置文件：/etc/group
+
+```shell
+users:x:100:(空)
+```
+
+共有4个字段：<br>
+
+组名：users<br>
+
+是否验证登录：x<br>
+
+组id：100<br>
+
+其他组设置:<br>
 
  
 
