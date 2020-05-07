@@ -117,6 +117,31 @@ dd if=/dev/sr0 of=/xxx/xxx.iso  将光盘里的系统刻成镜像文件
 mount  /dev/sr0 /mnt   //将光盘设备挂在到/mnt下
 ```
 
+##### 用户和用户组管理
+
++ 用户相关
+
+```shell
+useradd  新建用户
+userdel  删除用户  -r 删除用户的同时删除家目录  不加-r则不会删除家目录（为了防止误删除数据）
+passwd   修改用户密码
+usermod  修改用户属性
+chage    修改用户密码过期信息
+id +用户   查看用户属性
+```
+
++ 用户组相关
+
+```shell
+groupadd 新建用户组
+groupdel 删除用户组
+usermod -g group名 user名  修改user的group
+```
+
+
+
+
+
 ##### 用户和用户组配置
 
 ###### 用户配置文件：/etc/passwd<br>
