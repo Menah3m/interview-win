@@ -40,18 +40,24 @@ iproute(centOS7及以后)
 + 网络配置
 
 ```shel
+设置IP地址
 ifconfig <接口> <IP地址> netmask 
-ifup
-ifdown
-route add default gw <GW>
-route add -host <IP> gw <GW>
-route add -net <指定网段> netmask <子网掩码> gw <GW>
+
+ifup  eth0
+ifdown eth0
+
+添加路由
+route add default gw <GW>  添加默认路由
+route add -host <IP> gw <GW>  添加特定主机路由
+route add -net <指定网段> netmask <子网掩码> gw <GW> 添加特定网段路由
+
+修改网关
+1.先删除  route del default gw <default gw>
+2.添加新网关 route add default gw <new default gw>
 
 ```
 
 
-
-+ 路由命令
 
 ##### 网络排错常用命令
 
