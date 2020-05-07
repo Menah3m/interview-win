@@ -22,7 +22,36 @@ tar xf /tmp/etc-backup.tar -C /root    //解包  -C参数表示存放的位置
 tar zxf /tmp/etc-backup.tar.gz -C /root //解包并解压缩
 ```
 
+##### 网络管理
 
++ 网络状态查看
+
+```shell
+net-tools(centOS7之前)
+ ifconfig 查看网卡信息
+ mii-tool 网卡名称   查看网卡的物理连接状况
+ route -n 查看网关   -n表示不解析ip地址
+ 
+iproute(centOS7及以后)
+ ip
+ ss
+```
+
++ 网络配置
+
+```shel
+ifconfig <接口> <IP地址> netmask 
+ifup
+ifdown
+route add default gw <GW>
+route add -host <IP> gw <GW>
+route add -net <指定网段> netmask <子网掩码> gw <GW>
+
+```
+
+
+
++ 路由命令
 
 ##### 网络排错常用命令
 
