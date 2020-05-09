@@ -243,6 +243,20 @@ grub2-mkconfig -o /boot/grub2/grub.cfg  修改配置文件后使用此命令来�
 
 
 
+##### 进程管理
+
++ 进程查看
+
+```shell
+ps
+ps -e    显示所有进程信息
+ps -ef   显示所有进程的详细信息
+ps -eLf  除了进程信息之外，增加了线程信息的显示(LWP-LightWeightProgress)
+
+pstree
+top
+```
+
 
 
 
