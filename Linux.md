@@ -221,6 +221,28 @@ users:x:100:(空)
 
  
 
+##### grub
+
++ grub配置文件
+  + /etc/default/grub  简单配置
+  + /etc/grub.d/         详细配置
+  + /boot/grub2/grub.cfg    grub2的配置文件
+
+```she
+grub2-mkconfig -o /boot/grub2/grub.cfg  修改配置文件后使用此命令来产生新的grub配置文件
+
+```
+
+##### 忘记root密码的情况下如何重置
+
+1. 引导界面下进入编辑模式
+2. 添加`single`或者`rd.break`，然后`ctrl+x`进行重启
+3. `mount -o remount,rw /sysroot`重新挂载（根目录`/`只是内存中的虚拟根目录，硬盘上的目录`/sysroot`才是实际的根目录）
+4. `chroot`修改根目录
+5. `echo 123456 | passwd --stdin root`重置root密码
+
+
+
 
 
 
