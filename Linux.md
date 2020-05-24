@@ -250,11 +250,14 @@ grub2-mkconfig -o /boot/grub2/grub.cfg  修改配置文件后使用此命令来�
 ```shell
 ps
 ps -e    显示所有进程信息
-ps -ef   显示所有进程的详细信息
+ps -ef   显示所有进程的详细信息（命令的路径等）
 ps -eLf  除了进程信息之外，增加了线程信息的显示(LWP-LightWeightProgress)
 
 pstree
-top
+top     动态查看系统状态以及进程状态
+		按数字键可以单独查看单核cpu占用
+		按s可以调整动态更新的频率
+
 ```
 
 
