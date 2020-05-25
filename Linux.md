@@ -258,33 +258,58 @@ top     动态查看系统状态以及进程状态
 		按数字键可以单独查看单核cpu占用
 		按s可以调整动态更新的频率
 top -p [PID] 单独显示对应PID的进程信息
+cd /proc/[PID]  可以查看对应PID进程的各种文件
 ```
 
 
 
-##### 进程控制
++ 进程控制
 
-+ 调整优先级
+  + 调整优先级
 
-  + nice    范围从-20到19，值越小优先级越高，分配资源越多
-  + renice 重新设置优先级
+    nice    范围从-20到19，值越小优先级越高，分配资源越多
 
-  ```shell
-  nice -n 10 [filename]
-  renice -n 15 [PID]
-  ```
+    renice 重新设置优先级
 
-+ 进程的作业控制(前后台的切换)
+```shell
+nice -n 10 [filename]
+renice -n 15 [PID]
+```
 
-  + jobs
-  + &    后台运行
++ + 作业前后台的切换
 
-  ```shell
-  jobs    显示当前在运行的进程
-  	fg [job number] 将对应工作编号的进程调至前台
-  ```
+​		jobs
 
-  + ctrl+z  将当前前台运行的进程挂起
+​		&    后台运行
+
+```shell
+jobs    显示当前在运行的进程
+	fg [job number] 将对应工作编号的进程调至前台
+```
+
+​		ctrl+z  将当前前台运行的进程挂起
+
++ 守护进程（daemon）
+  + 不需要打开终端就可以运行的进程，相当于Windows中的服务
++ nohup
+  + nohup命令使得进程忽略hangup信号(即使关掉终端，进程也可以正常运行 ）
+
+
+
+##### 系统日志
+
+文件位置：/var/log
+
+查看方式：tail -f  [filename]
+
++ messages   系统日志
++ dmesg     内核信息日志
++ secure     安全日志
++ cron         计划任务日志
+
+
+
+
 
 
 
