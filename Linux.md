@@ -309,6 +309,41 @@ jobs    显示当前在运行的进程
 
 
 
+##### 服务管理工具 systemctl
+
++ 服务（提供常见功能的守护进程）集中管理工具
+
+  + service
+
+    > service的启动脚本： /etc/init.d/ 下
+
+  + systemctl
+
+    > systemctl的启动脚本目录：/usr/lib/systemd/system/ 下
+
++ 原生的1号进程init是系统启动时负责系统服务管理的进程，被systemctl所取代
+
+  ```shell
+  chkconfig --list 查看启动级别
+  init 0  关机
+  init 6  重启
+  init 1  单用户
+  init 2  不带网络的多用户模式
+  init 3  命令行模式
+  init 5  图形模式
+  init 4  未使用
+  ```
+
++ 启动级别决定服务是否开启
+
+  某些级别下才会开启或者禁用某些服务
+
+  ```shell
+  systemctl list-unit-files   使用systemctl列出使用的服务
+  ```
+
+  
+
 
 
 
