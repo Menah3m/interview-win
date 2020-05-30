@@ -320,6 +320,18 @@ jobs    显示当前在运行的进程
   + systemctl
 
     > systemctl的启动脚本目录：/usr/lib/systemd/system/ 下
+    
+    ```shell
+    systemctl start|restart|stop|enable|disable|reload [服务名称]
+    start 开启服务
+    restart 重启服务
+    reload  不关闭服务重新载入
+    stop  关闭服务
+    enable  开机自启
+    disable 开机不自启
+    ```
+    
+    
 
 + 原生的1号进程init是系统启动时负责系统服务管理的进程，被systemctl所取代
 
@@ -342,11 +354,26 @@ jobs    显示当前在运行的进程
   systemctl list-unit-files   使用systemctl列出使用的服务
   ```
 
+
++ systemctl下查看级别
+
+  ```shell
+  cd /lib/sytemd/system
+  ls -l runlevel*.target   查看各个级别的详细文件
+  systemctl get-default    查看当前的默认级别
+  systemctl set-default 级别名   重新设置默认级别
+  ```
+
++ 服务启动顺序
+
+  ```shell
+  cd /usr/lib/systemd/system/
+  ls -l  查看当前所有的服务相关文件
+  vim sshd.service   查看某个服务的文件（以sshd为例）
+  服务的启动顺序由 [unit]块 决定
+  ```
+
   
-
-
-
-
 
 
 
