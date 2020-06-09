@@ -17,6 +17,15 @@
 #### 方案选择
 
 + agent
-+ ssh
-+ salt
+  + 在目标机器上安装agent脚本，定期任务执行后通过requests模块将得到的信息通过API存入数据库，再通过前端页面进行展示
+  + 优点：速度快，适合数量多的场景
+  + 缺点：需要事先安装agent
++ ssh类
+  + 创建若干个中控机，通过ssh协议（paramiko模块实现，或者使用现成的工具如Ansible）等连接目标主机，执行命令后将得到的信息通过API存入数据库，再通过前端页面显示
+  + 缺点：速度慢，适合数量少的场景，且需要若干台中控机，需要服务器成本
+  + 优点：不需要安装agent，不需要考虑脚本的更新
++ salt类
+  + salt-master和salt-minion
+  + 中控机扮演master角色，目标主机扮演minion角色。利用salt-stack现成的工具来收集信息
+  + 适合正在使用salt-stack或想要使用salt-stack的场景
 
