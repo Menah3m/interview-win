@@ -57,12 +57,18 @@
     + setattr()
 
 + 采集信息实现
+
   + 传统的做法：根据mode来进行条件判断，分别实行不同的执行过程（面向过程）
+
     + 存在的问题：1.面向过程 2.代码过于冗余，不利于复写 3.优化比较麻烦
+
   + 高内聚低耦合原则：
+
     + 这是一种设计思想
     + 一个类或者一个函数中，不能有一行代码和此类或者此函数所阐述的功能不一致
+
   + 写代码的原则（review的要点）：
+
     + 功能是否能实现
     + 代码的整洁度
       + 变量、方法和类的命名风格要一致
@@ -70,4 +76,44 @@
         + 小驼峰 getUserInfo
         + 下划线 get_user_info
       + 变量名要有意义
+      + 函数体内部的代码不能超过一定的行数
+
+  + 改进方法：
+
+    + 将采集的模块代码封装成一个插件文件
+
+      + disk： disk.py -->  Disk():  ----> process()
+      + cpu:     cpu.py -->   Cpu():  ---->process()
+
+    + 设置一个字典来保存各个类，用来决定初始化时是否导入（可插拔式）
+
+      + 如果不想使用某个功能，可以将字典中的该项注释掉（类似Django中）
+
+      + 配置文件：
+
+        + PLUGIN_DICT = {
+
+            'basic': 'src.plugins.basic.Basic',
+
+            'cpu': 'src.plugins.cpu.Cpu',
+
+            'disk': 'src.plugins.disk.Disk',
+
+            'memory': 'src.plugins.memory.Memory',
+
+            'nic': 'src.plugins.nic.Nic',
+
+          }
+
+      + 插件：
+
+        + src:
+          + plugins
+            + \__init__.py:实现可插拔式功能的关键
+              + execute()
+            + basic.py --> Basic -->process()
+            + cpu.py-->Cpu-->process()
+            + memory-->Memory-->process()
+            + disk-->Disk-->process()
+            + nic-->Nic-->process()
 
