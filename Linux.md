@@ -373,7 +373,26 @@ jobs    显示当前在运行的进程
   服务的启动顺序由 [unit]块 决定
   ```
 
-  
+
+
+
+##### SELinux
+
++ MAC（强制访问控制） 与 DAC（自主访问控制）
++ 查看SELinux的命令
+  + getenforce	
+    + 查看SELinux 的状态：三种 enforcing   permissive  disable（生产环境一般关闭）
+    + 临时修改SELinux状态命令：setenforce 0
+  + /usr/sbin/sestatus
+  + ps -Z      进程相关
+  + ls -Z       文件相关
+  + id -Z       用户相关
++ 关闭SELinux
+  + setenforce 0
+  + /etc/selinux/sysconfig
++ SELinux配置文件位置：/etc/selinux/config
+
+
 
 
 
