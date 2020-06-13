@@ -399,7 +399,19 @@ jobs    显示当前在运行的进程
 + 内存和磁盘使用率的查看
 
   ```shell
+  内存查看
+  top
   
+  free
+  free -m 以兆为单位显示
+                total        used        free      shared  buff/cache   available
+  Mem:           1829        1021         116           2         692         650
+  Swap:          1024         264         760
+  
+  磁盘查看
+  fdisk
+  df
+  du
   ```
 
 + ext4 文件系统
