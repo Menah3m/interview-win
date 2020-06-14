@@ -116,4 +116,8 @@
             + memory-->Memory-->process()
             + disk-->Disk-->process()
             + nic-->Nic-->process()
-
+    
+  + 改进采集功能
+  
+    + 将共用的功能抽离出来，写成一个基类，后续如果还有其他的插件，则需要继承基类
+  
