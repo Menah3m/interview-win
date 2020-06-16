@@ -408,10 +408,16 @@ jobs    显示当前在运行的进程
   Mem:           1829        1021         116           2         692         650
   Swap:          1024         264         760
   
-  磁盘查看
-  fdisk
-  df
-  du
+  查看磁盘信息
+  fdisk -l 
+  parted -l    parted -d   
+  
+  df -h  查看分区信息
+  ls -l [directory] 查看某个目录的大小(包含空洞文件-相当于占位置但没有内容，占用的地址计算在内)
+  ls -lh [directory] 查看大容量目录的大小(包含空洞文件)
+  du  -h [directory]  查看目录或文件的实际大小
+  
+  
   ```
 
 + ext4 文件系统
