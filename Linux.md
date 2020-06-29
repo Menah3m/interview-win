@@ -450,6 +450,22 @@ jobs    显示当前在运行的进程
 
 
 
+##### Shell 脚本
+
++ 执行方式
+  + bash ./filename.sh
+    + 不需要可执行权限也可以执行，会产生新的Shell来执行
+  + ./filename.sh
+    + 必须有可执行权限，会产生新的Shell来执行
+    + 添加可执行权限：chmod u+x filename
+  + source ./filename.sh
+    + 直接在当前Shell执行该脚本文件
+  + .  filename.sh
+    + 在当前Shell执行该脚本文件
++ 内建命令和外部命令的区别
+  + 内建命令不需要创建子进程
+  + 内建命令对当前Shell生效
+
 
 
 
