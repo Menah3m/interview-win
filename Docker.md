@@ -6,7 +6,7 @@
 - Dockerfile
 - tar文件
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8bab34d-8337-4e91-a837-c775431e4f8e/Docker.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8bab34d-8337-4e91-a837-c775431e4f8e/Docker.png)
+![Docker重要概念关系图](https://raw.githubusercontent.com/Menah3m/interview-win/master/images/Docker1.png)
 
 ### Docker核心技术
 
@@ -16,7 +16,7 @@
 
 ### Docker架构
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e78f713b-2726-4368-bf95-69e48b85026a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e78f713b-2726-4368-bf95-69e48b85026a/Untitled.png)
+![Docker基本架构](https://raw.githubusercontent.com/Menah3m/interview-win/master/images/Docker2.png)
 
 ### 安装
 
