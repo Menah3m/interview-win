@@ -35,6 +35,8 @@
 
 
 
+![Kubernetes组件](https://raw.githubusercontent.com/Menah3m/interview-win/master/images/Kubernetes1.png)
+
 一个Kubernetes集群的主要组件有：
 
 + 控制平面组件Control Plane Components
