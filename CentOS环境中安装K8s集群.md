@@ -11,7 +11,7 @@ CentOS7虚拟机两台
 
 
 
-#### 1.虚拟机准备
+#### 1.虚拟机准备(master,slave)
 
 + 更新hosts文件
 
@@ -61,7 +61,7 @@ CentOS7虚拟机两台
 
 ```shell
 # 安装yum相关插件
-yum install -y yum-utils
+yum -y install yum-utils
 
 # 设置docker源
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -103,11 +103,11 @@ docker run hello-world
   # 添加内容
   [kubernetes]
   name=Kubernetes
-  baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7x86_64/
+  baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
   enabled=1
   gpgcheck=1
   repo_gpgcheck=1
-  gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm.package-key.gpg
+  gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
   
   # 更新yum缓存
   yum clean all
@@ -190,6 +190,19 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
 
 #### slave安装和配置
 
++ 修改内核参数
+
+  ```shell
+  # 打开k8s.conf文件
+  vi /etc/sysctl.d/k8s.conf
+  # 添加以下内容到最后
+  net.bridge.bridge-nf-call-ip6tables=1
+  net.bridge.bridge-nf-call-iptables=1
+  # 重新载入使设置生效
+  sysctl -p /etc/sysctl.d/k8s.conf
+  ```
+
+
 + 设置kubernetes源
 
   ```shell
@@ -198,11 +211,11 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
   # 添加内容
   [kubernetes]
   name=Kubernetes
-  baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7x86_64/
+  baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
   enabled=1
   gpgcheck=1
   repo_gpgcheck=1
-  gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm.package-key.gpg
+  gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
   
   # 更新yum缓存
   yum clean all
@@ -231,5 +244,5 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
   kubeadm join 192.168.13.100:6443 --token xxxxxxxx(master节点的令牌) --discovery-token-ca-cert-hash sha256:xxxxxx(master节点产生的加密串)
   # 在master节点 验证结果
   kubectl get nodes
-   ```
+  ```
 
