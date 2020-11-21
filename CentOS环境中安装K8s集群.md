@@ -65,6 +65,9 @@ yum -y install yum-utils
 
 # 设置docker源
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+或者
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
 
 # 安装docker ce
 yum -y install docker-ce-19.03.9 docker-ce-cli-19.03.9 containerd.io
